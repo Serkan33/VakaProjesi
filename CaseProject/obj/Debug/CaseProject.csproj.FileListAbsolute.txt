@@ -1,0 +1,10 @@
+C:\Users\Serkan\source\repos\CaseProject\CaseProject\bin\Debug\CaseProject.exe.config
+C:\Users\Serkan\source\repos\CaseProject\CaseProject\bin\Debug\CaseProject.exe
+C:\Users\Serkan\source\repos\CaseProject\CaseProject\bin\Debug\CaseProject.pdb
+C:\Users\Serkan\source\repos\CaseProject\CaseProject\obj\Debug\CaseProject.csprojAssemblyReference.cache
+C:\Users\Serkan\source\repos\CaseProject\CaseProject\obj\Debug\CaseProject.Form1.resources
+C:\Users\Serkan\source\repos\CaseProject\CaseProject\obj\Debug\CaseProject.Properties.Resources.resources
+C:\Users\Serkan\source\repos\CaseProject\CaseProject\obj\Debug\CaseProject.csproj.GenerateResource.cache
+C:\Users\Serkan\source\repos\CaseProject\CaseProject\obj\Debug\CaseProject.csproj.CoreCompileInputs.cache
+C:\Users\Serkan\source\repos\CaseProject\CaseProject\obj\Debug\CaseProject.exe
+C:\Users\Serkan\source\repos\CaseProject\CaseProject\obj\Debug\CaseProject.pdb
