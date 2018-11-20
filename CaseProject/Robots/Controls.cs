@@ -11,7 +11,7 @@ namespace CaseProject.Robots
 {
     class Controls
     {
-        private RoList roList;
+        public RoList roList;
         private RotationNode east;
         private RotationNode south;
         private RotationNode west;

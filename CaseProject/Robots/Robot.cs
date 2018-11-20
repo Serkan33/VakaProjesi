@@ -35,6 +35,7 @@ namespace CaseProject.Robots
         {
             location = new Point(x,y);
             size = new Size(width,height);
+            state = (char)Enums.NORTH;
         }
 
         public Rectangle buildRobot()
