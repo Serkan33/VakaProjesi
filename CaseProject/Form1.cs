@@ -18,15 +18,17 @@ namespace CaseProject
     {
         private static Robot r;
         private static Graphics g;
-        Brush b = new SolidBrush(Color.Red);
         private Controls controls;
+        public static Size size; 
         public Form1()
         {
             InitializeComponent();
             r = new Robot(50, 50, 30, 60);
+            r.firstLocation = r.location;
             r.state = (char)Enums.NORTH;
             this.BackColor = Color.MintCream;
             controls = new Controls();
+            size = Size;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -37,7 +39,6 @@ namespace CaseProject
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             g=this.CreateGraphics();
-
             RotateRectangle(g, r.buildRobot(), 0);
         }
 
@@ -52,8 +53,12 @@ namespace CaseProject
             }
             if (e.KeyChar== (char)Enums.MOVE)
             {
-                
-                r.location = controls.move(r);               
+                r.location = controls.move(r);   
+                if(r.location==r.firstLocation)
+                {
+                    Debug.WriteLine("Konum uyuştu");
+                    r.isDone = true;
+                }
                 RotateRectangle(g, r.buildRobot(), r.angle);
             }
             RotateRectangle(g, r.buildRobot(), r.angle);
@@ -71,5 +76,6 @@ namespace CaseProject
                 g.ResetTransform();
             }
         }
+        
     }
 }
