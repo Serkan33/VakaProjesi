@@ -16,21 +16,29 @@ namespace CaseProject
 {
     public partial class Form1 : Form
     {
-        private static Robot r;
-        private static Graphics g;
+        private  Robot r;
+        private Robot r2;
+        private  Graphics g;
         private Controls controls;
-        public static Size size; 
+        
         public Form1()
         {
             InitializeComponent();
-            r = new Robot(50, 50, 30, 60);
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Size = Start.rec.Size;
+            r = new Robot(Start.rec.X+1, -1*(Start.rec.Y-(Start.rec.Height-120)), 30, 60);
+            r2 = new Robot(new Random().Next(10,Size.Width-100), new Random().Next(10, Size.Height-100), 30,60);
+            r2.isDone = true;
+            r2.firstLocation = r2.location;
             r.firstLocation = r.location;
             r.state = (char)Enums.NORTH;
             this.BackColor = Color.MintCream;
             controls = new Controls();
-            size = Size;
         }
-
+      
         private void Form1_Load(object sender, EventArgs e)
         {
             
@@ -39,6 +47,7 @@ namespace CaseProject
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             g=this.CreateGraphics();
+            RotateRectangle(g, r2.buildRobot(), 0);
             RotateRectangle(g, r.buildRobot(), 0);
         }
 
@@ -49,18 +58,22 @@ namespace CaseProject
             if (e.KeyChar==(char)Enums.LEFT || e.KeyChar == (char)Enums.RIGHT)
             {
                 controls.setState(r, e.KeyChar);
+             
                 Debug.WriteLine(r.state);
             }
             if (e.KeyChar== (char)Enums.MOVE)
             {
-                r.location = controls.move(r);   
-                if(r.location==r.firstLocation)
+                r.location = controls.move(r);
+               
+                if (r.location==r.firstLocation)
                 {
                     Debug.WriteLine("Konum uyuştu");
                     r.isDone = true;
+                  
                 }
-                RotateRectangle(g, r.buildRobot(), r.angle);
+                //RotateRectangle(g, r.buildRobot(), r.angle);
             }
+            
             RotateRectangle(g, r.buildRobot(), r.angle);
         }
 

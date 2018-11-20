@@ -57,7 +57,7 @@ namespace CaseProject.Robots
         public Point move(Robot r)
         {
             
-           Point p = vergeControl(r,Form1.size);
+           Point p = vergeControl(r,Start.rec.Size);
             if (!vergeBool)
             {
                 vergeBool = true;
@@ -88,7 +88,12 @@ namespace CaseProject.Robots
                 r.location = r.location;
                 vergeBool = false;
             }
-            else if (r.location.X < 15)
+            else if (r.location.X < 15 &&(r.state==(char)Enums.EAST|| r.state == (char)Enums.WEST))
+            {
+                r.location = new Point(r.location.X + 1, r.location.Y);
+                vergeBool = false;
+            }
+             else if (r.location.X < 0)
             {
                 r.location = new Point(r.location.X + 1, r.location.Y);
                 vergeBool = false;
@@ -103,9 +108,9 @@ namespace CaseProject.Robots
                  r.location = new Point(r.location.X, r.location.Y+1);
                 vergeBool = false;
             }
-            else if (r.location.Y > size.Height)
+            else if (r.location.Y > (size.Height-120))
             {
-                 r.location = new Point(r.location.X, r.location.Y + 1);
+                 r.location = new Point(r.location.X, r.location.Y - 1);
                 vergeBool = false;
             }
 

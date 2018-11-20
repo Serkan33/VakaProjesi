@@ -22,12 +22,14 @@ namespace CaseProject.Robots
             robot = new Rectangle();
             angle = 0;
             isDone = false;
+           
         }
 
        public Robot(Point p,Size s)
         {
             location = p;
             size = s;
+            state = (char)Enums.NORTH;
         }
         public Robot(int x , int y, int width, int height)
         {
