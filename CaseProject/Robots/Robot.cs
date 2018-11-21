@@ -15,13 +15,16 @@ namespace CaseProject.Robots
        public Size size { set; get; }
        private Rectangle robot;
        public int angle { set; get; }
-       public char state { set; get; }
-       public bool isDone { set; get; } 
-       public Robot()
+       public char state = (char)Enums.NORTH;
+        public bool isDone { set; get; }
+       
+        public Robot()
         {
             robot = new Rectangle();
             angle = 0;
             isDone = false;
+            location = new Point(new Random().Next(15, Start.rec.Width), new Random().Next(15, Start.rec.Height-100));
+            size = new Size(30,60);
            
         }
 
@@ -29,20 +32,22 @@ namespace CaseProject.Robots
         {
             location = p;
             size = s;
-            state = (char)Enums.NORTH;
+           
         }
         public Robot(int x , int y, int width, int height)
         {
             location = new Point(x,y);
             size = new Size(width,height);
-            state = (char)Enums.NORTH;
+            
         }
 
         public Rectangle buildRobot()
         {
             robot.Location = location;
             robot.Size = size;
+            
             return robot;
         }
+
     }
 }

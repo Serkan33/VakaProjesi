@@ -30,7 +30,6 @@ namespace CaseProject.Robots
             roList.lastNode.next = roList.firstNode;
             roList.firstNode.prev = roList.lastNode;
             roList.currentNode = roList.firstNode;
-           
         }
         
         public void setState(Robot r,char charKey)
@@ -42,6 +41,14 @@ namespace CaseProject.Robots
                     case (char)Enums.LEFT:
                         r.state = roList.currentNode.next.state;
                         roList.currentNode = roList.currentNode.next;
+                        if (r.location.X<1)
+                        {
+                            r.location = new Point(r.location.X+15,r.location.Y);
+                        }
+                        else if (r.location.X>Start.rec.Size.Width)
+                        {
+                            r.location = new Point(r.location.X - 15, r.location.Y);
+                        }
                         r.angle += 90;
                         break;
                     case (char)Enums.RIGHT:
@@ -98,7 +105,7 @@ namespace CaseProject.Robots
                 r.location = new Point(r.location.X + 1, r.location.Y);
                 vergeBool = false;
             }
-            else if (r.location.X > size.Width)
+            else if (r.location.X > (size.Width-(r.size.Height+4)))
             {
                 r.location = new Point(r.location.X - 1, r.location.Y);
                 vergeBool = false;

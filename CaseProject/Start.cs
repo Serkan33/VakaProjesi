@@ -33,6 +33,14 @@ namespace CaseProject
             {
                 MessageBox.Show("Değerler sayı olmalı ve aralarında birer boşluk olmalı!");
             }
+            else if (int.Parse(coord[1])< 0 || int.Parse(coord[1])> int.Parse(rightCorner[1]))
+            {
+                MessageBox.Show("Y koordinatı 0 dan büyük yükseklikten küçük olmalı");
+            }
+            else if (int.Parse(coord[0]) < 0 || int.Parse(coord[0]) > int.Parse(rightCorner[0]))
+            {
+                MessageBox.Show("X koordinatı 0 dan büyük genişliten küçük olmalı");
+            }
             else
             {
                 rec = new Rectangle(new Point(int.Parse(coord[0]), int.Parse(coord[1])), new Size(int.Parse(rightCorner[0]), int.Parse(rightCorner[1])));
