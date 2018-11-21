@@ -23,7 +23,7 @@ namespace CaseProject.Robots
             robot = new Rectangle();
             angle = 0;
             isDone = false;
-            location = new Point(new Random().Next(15, Start.rec.Width), new Random().Next(15, Start.rec.Height-100));
+            location = new Point(new Random().Next(15, Start.rec.Width), new Random().Next(50, Start.rec.Height)-50);
             size = new Size(30,60);
            
         }
