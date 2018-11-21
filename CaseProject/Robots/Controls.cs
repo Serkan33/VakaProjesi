@@ -9,13 +9,14 @@ using System.Diagnostics;
 
 namespace CaseProject.Robots
 {
+    //The class that makes robot position and direction settings
     class Controls
     {
         public RoList roList;
         private RotationNode east;
         private RotationNode south;
         private RotationNode west;
-     
+    
         private bool vergeBool;
         public Controls()
         {
@@ -31,7 +32,8 @@ namespace CaseProject.Robots
             roList.firstNode.prev = roList.lastNode;
             roList.currentNode = roList.firstNode;
         }
-        
+
+        // this method adjusts the direction of the robot
         public void setState(Robot r,char charKey)
         {
             if (!r.isDone)
@@ -61,6 +63,7 @@ namespace CaseProject.Robots
            
         }
 
+        //Robot drive method
         public Point move(Robot r)
         {
             
@@ -87,7 +90,8 @@ namespace CaseProject.Robots
             }
             return newP;
         }
-        
+
+        // Boundary control method
         public Point vergeControl(Robot r,Size size)
         {
             if (r.isDone)

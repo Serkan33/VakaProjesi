@@ -8,6 +8,8 @@ using System.Windows.Forms;
 
 namespace CaseProject.Robots
 {
+
+    //Robot model 
     class Robot 
     {
        public Point location { set; get; }
@@ -40,7 +42,7 @@ namespace CaseProject.Robots
             size = new Size(width,height);
             
         }
-
+        // Robot is building this method
         public Rectangle buildRobot()
         {
             robot.Location = location;

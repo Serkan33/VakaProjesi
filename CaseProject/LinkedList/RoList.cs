@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace CaseProject.LinkedList
 {
+
+    // Linked list for direction control
     class RoList
     {
         public RotationNode firstNode { set; get; }
